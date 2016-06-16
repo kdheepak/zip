@@ -7,15 +7,15 @@ install:
 - pip install sphinx
 - pip install sphinx-rtd-theme
 - pip install ghp-import
+- pip install -r requirements.txt
 language: python
-python: 3.5
+python: 2.7
 script:
 - echo "Running script"
-- cd docs
-- make html
+- python zip/freeze.py
 - git config user.name "Travis-CI"
 - git config user.email "noreply@travis-ci.org"
-- ghp-import -n -m "Generate Sphinx Documentation"  _build/html
+- ghp-import -n -m "Generate website"  _build
 - git push -f -q https://$GITHUB_API_KEY@github.com/kdheepak/zip gh-pages
 notifications:
   email: false
