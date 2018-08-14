@@ -16,7 +16,7 @@ except:
     with open(path.join(here, 'README.md')) as f:
         long_description = f.read()
 
-install_requires = [str(ir.req)
+install_requires = [str(ir)
                     for ir in parse_requirements(
                         path.join(here, 'requirements.txt'),
                         session=False)]
